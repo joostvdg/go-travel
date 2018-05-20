@@ -97,13 +97,25 @@ spec:
           env:
           - name: DB
             value: go-travel-db
+          resources:
+            limits:
+              memory: "10Mi"
+              cpu: 0.02
+            requests:
+              memory: "10Mi"
+              cpu: 0.02
           readinessProbe:
               httpGet:
                 path: /trips
                 port: 8888
-              periodSeconds: 1
+              initialDelaySeconds: 20
+              timeoutSeconds: 5
+              failureThreshold: 5
           livenessProbe:
               httpGet:
                 path: /trips
                 port: 8888
+              initialDelaySeconds: 20
+              timeoutSeconds: 5
+              failureThreshold: 5
 
