@@ -40,7 +40,7 @@ spec:
   - port: 27017
   selector:
     type: db
-    service: go-travel-db
+    service: go-travel
 
 ---
 
